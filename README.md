@@ -41,6 +41,13 @@ $ yarn dev
 # 크롬으로 localhost:3000 접속
 ```
 
+## 쇼핑몰 관리자 계정 만드는 방법
+
+```text
+회원가입 및 로그인 후, 마이페이지로 들어간 다음
+우측 하단의 floating action button을 클릭하면 관리자 계정으로 전환할 수 있다.
+```
+
 ## Build Setup
 
 ``` bash

@@ -25,7 +25,7 @@
 $ git clone https://github.com/hummingengineer/nuxt_damoa_shoppingmall.git
 
 # move
-$ cd damoa
+$ cd nuxt_damoa_shoppingmall
 
 # install dependencies
 $ yarn install

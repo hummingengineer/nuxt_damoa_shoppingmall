@@ -22,7 +22,7 @@
 
 ``` bash
 # download
-$ git clone https://github.com/hummingengineer/damoa.git
+$ git clone https://github.com/hummingengineer/nuxt_damoa_shoppingmall.git
 
 # move
 $ cd damoa

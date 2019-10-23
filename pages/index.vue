@@ -30,7 +30,7 @@
       
       <v-flex align-self-center>
         <v-row>
-          <v-pagination v-if="cards && cards.length !== 0" v-model="currentPage" @click="pageClicked(currentPage)" :length="totalPage"></v-pagination>
+          <v-pagination v-if="cards && cards.length !== 0" v-model="currentPage" :length="totalPage"></v-pagination>
         </v-row>
       </v-flex>
       
@@ -105,15 +105,17 @@ export default {
       }
       else alert('로그인을 해주세요')
     },
+  },
 
-    async pageClicked(currentPage){
+  watch: {
+    currentPage: async function(currentPage){
       if(this.isLogin){
         let { data } = await this.$axios.get(`/api/product/pagination?page=${currentPage}`)
-        let pageProducts = data
+        let pageProducts = data.pageProducts
         let r1 = await this.$axios.get('/api/user/session-userinfo')
         let userFavorites = r1.data.userFavorites
         let userCarts = r1.data.userCarts
-        
+
         for(let i of pageProducts){
           if(userFavorites || userFavorites.length !== 0) for(let j of userFavorites) if(i.productCode === j) i.productHeartColor = 'red'
           if(userCarts || userCarts.length !== 0) for(let k of userCarts) if(i.productCode === k) i.productCartColor = 'red'
@@ -126,7 +128,7 @@ export default {
         this.cards = data.pageProducts
         this.totalPage = data.totalPage
       }
-    },
+    }
   },
 }
 </script>
